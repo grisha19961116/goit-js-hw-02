@@ -1,21 +1,28 @@
-// Завдання 2
-// Напиши скрипт перевірки кількості товарів на складі. Є змінні total (кількість товарів на складі) і ordered (одиниць товару в замовленні).
+// // Завдання 2
+// // Напиши скрипт підрахунку вартості гравіювання прикрас. Для цього створи функцію
+//  calculateEngravingPrice(message, pricePerWord) приймаючу рядок (в рядку будуть тільки слова і прогалини)
+//   і ціну гравіювання одного слова, і повертає ціну гравіювання всіх слів в рядку.
 
-// Порівняй ці значення і за результатами виведи:
-
-// Якщо в замовленні вказано число, що перевищує кількість товарів на складі, то виведи повідомлення "На складі недостатньо товарів!".
-// В іншому випадку виводь повідомлення "Замовлення оформлено, з вами зв'яжеться менеджер".
-// Перевір працездатність коду з різними значеннями змінної ordered, наприклад 20, 80 і 130.
-
-// const total = 100;
-// const ordered = 50;
-const total = 100;
-const ordered = 90;
-let message;
-if(ordered > total) {
-    message = "We dont have enough products on storehouse!";
-} else{
-    message = "Oreder is accepted ,our maneger going to call you!";
-}
-console.log(message);
-
+const calculateEngravingPrice = function (message, pricePerWord) {
+    const result = message.split(' ').length*pricePerWord;
+    return `Our result after calculate is ${result}`;
+};
+const message = 'Welcome to Bahamas!';
+console.log(
+  calculateEngravingPrice(
+    'Proin sociis natoque et magnis parturient montes mus',
+    10,
+  ),
+); 
+console.log(
+  calculateEngravingPrice(
+    'Proin sociis natoque et magnis parturient montes mus',
+    20,
+  ),
+);
+console.log(
+  calculateEngravingPrice('Donec orci lectus aliquam est magnis', 40),
+); 
+console.log(
+  calculateEngravingPrice('Donec orci lectus aliquam est magnis', 20),
+); 

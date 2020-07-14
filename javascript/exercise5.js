@@ -1,58 +1,33 @@
-// // Завдання 5
-// // Користувач може оформити доставку товару до себе в країну, вказавши її при відвідуванні сторінки в prompt. 
-// Врахуй, користувач може ввести ім'я країни не тільки буквами нижнього регістра, а наприклад 'кИтАЙ'.
-
-// // Напиши скрипт який виводить повідомлення про вартість доставки в зазначену країну. Обов'язково використовуй switch.
-//  Формат повідомлення: 'Доставка в [країна] буде коштувати [ціна] кредитів'.
-
-// // Але доставка є не скрізь, якщо зазначеної країни немає в списку, то виводь в alert повідомлення 'У вашій країні доставка недоступна'.
-
-// Нижче наведено список країн і вартість доставки.
-
-// Китай - 100 кредитів
-// Чилі - 250 кредитів
-// Австралія - 170 кредитів
-// Індія - 80 кредитів
-// Ямайка - 120 кредитів
-const message = "Put please name country from which you want order.";
-let input = prompt(message);
-let rent;
-let generalInformationAboutProcces;
-if(input !== null){
-    input = input.toLocaleLowerCase();
+// Задание 5
+// Напиши функцию checkForSpam(message), принимающую 1 параметр message - строку.
+//  Функция проверяет ее на содержание слов spam и sale. Если нашли зарещенное слово то функция возвращает true,
+//   если запрещенных слов нет функция возвращает false. Слова в строке могут быть в произвольном регистре.
+const checkForSpam = function(message) {
+    const elemSpam = 'spam';
+    const elemSpamUpperCase ='[SPAM]';
+    const elemSale = 'sale';
+    for (let i = 0; i < message.length; i++) {
+        if (message[i] === elemSpam || message[i] === elemSale || message[i] === elemSpamUpperCase) {
+            return true;
+        }
+    }
+    return false;
 }
-switch(input){
-    case 'china':
-        rent="100";
-        generalInformationAboutProcces = `Delivery ${input} will be cost  ${rent} coins`;
-        break;
-    case 'chili':
-        rent="250";
-        generalInformationAboutProcces = `Delivery ${input} will be cost  ${rent} coins`;
-        break;
-    case 'australia':
-        rent="170";
-        generalInformationAboutProcces = `Delivery ${input} will be cost  ${rent} coins`;
-        break;
-    case 'india':
-        rent="80";
-        generalInformationAboutProcces = `Delivery ${input} will be cost  ${rent} coins`;
-        break;
-    case 'jamika':
-        rent="120";
-        generalInformationAboutProcces = `Delivery ${input} will be cost  ${rent} coins`;
-        break;
-    default:
-     if(input===null){
-        generalInformationAboutProcces = "User canceled window!";
-        break;
-    } else { 
-        generalInformationAboutProcces = 'In your country deliveri is not access';
-        break;
-    }  
-}
-console.log(generalInformationAboutProcces);
-alert(generalInformationAboutProcces);
+let string = 'Latest technology news';
+let massiveForString = string.split(' ');
+console.log(checkForSpam(massiveForString)); // false
+
+string = 'JavaScript weekly newsletter ';
+massiveForString = string.split(' ');
+console.log(checkForSpam(massiveForString)); // false
+
+string = 'Get best sale offers now sale!';
+massiveForString = string.split(' ');
+console.log(checkForSpam(massiveForString)); // true
+
+string ='[SPAM] How to earn fast money ?';
+massiveForString = string.split(' ');
+console.log(checkForSpam(massiveForString)); // true
 
 
 
