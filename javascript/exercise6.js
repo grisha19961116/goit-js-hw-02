@@ -30,7 +30,6 @@ do{
         break;
     }
 } while(true);
-numbers = [numbers];
-total = numbers;
+total = [numbers];
 console.log(conclusion,total);
 alert(`${conclusion} ${total}`);
