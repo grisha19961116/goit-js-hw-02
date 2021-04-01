@@ -1,35 +1,29 @@
-// Завдання 6
-// Напиши скрипт з наступним функціоналом:
+// Exercise 6
+// Write script with next functional:
+// When  page is downloading sagest to user input number into prompt.
+// Input value will save to variable 'input' and add to massive numbers.
+// Operation input user number and save into massive are doing for that moment
+//  while  user doesn't tap  Cancel into prompt.
+// After that like user has been finished input by tap 'Cancel ', if massive is not empty,
+// necessary to count amount all massive elements and save it into variables total.
 
-// При завантаженні сторінки користувачеві пропонується в prompt ввести число.
-//  Введення зберігається в змінну input і додається в масив чисел numbers.
-// Операція введення числа користувачем і збереження в масив триває до тих пор, пір,
-//  поки користувач не натисне Cancel в prompt.
-// Після того як користувач припинив введення натиснувши Cancel, якщо масив не порожній, 
-// необхідно порахувати суму всіх елементів масиву і записати її в змінну total.
-//  Використовуй цикл for або for...of. Після чого в консоль виведи рядок 'Загальна сума чисел дорівнює [сума]'.
-// 🔔 Робити перевірку того, що користувач ввів саме число, а не довільний набір символів,
-// не обов'язково. Якщо хочеш, в разі некоректного введення, показуй alert з текстом 'Було введено не число,
-// попробуйте ще раз', при цьому результат prompt записувати в масив чисел не потрібно, після чого знову користувачеві пропонується ввести число в prompt.
 let total = 0;
 const message = "Put number";
 let conclusion;
 let input;
-let numbers = 0 ;
-do{
-    input = prompt(message);
-    if(input === null){
-        conclusion = 'General amount is ';
-        break;
-    } 
-    input = Number(input);
-    numbers +=input;
-    if(Number.isNaN(Number(input))){
-        conclusion = 'You put not a number!Please rewrete !That';
-        numbers = 'again.';
-        break;
-    }
-} while(true);
-total = [numbers];
-console.log(conclusion,total);
+do {
+  input = prompt(message);
+  input = Number(input);
+  if (input === null) {
+    conclusion = "General amount is ";
+    break;
+  }
+  if (Number.isNaN(input)) {
+    conclusion = "You put not a number!Please rewrite !That";
+    total = "again.";
+    break;
+  }
+  total += input;
+} while (true);
+console.log(conclusion, total);
 alert(`${conclusion} ${total}`);
